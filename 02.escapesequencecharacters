@@ -3,3 +3,5 @@
 # \n is user for newline
 
 echo -e "line5\nline6"
+
+#whenever using special characters enclose them in double codes
