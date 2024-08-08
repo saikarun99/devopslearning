@@ -7,3 +7,6 @@ echo welcome to bash scripting
 
 #This is how we execute the script
 # bash scriptname.sh or ./scriptname.sh
+
+echo sai karun
+echo peddireddy
