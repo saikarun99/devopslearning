@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# \n is user for newline
+
+echo -e "line5\nline6"
