@@ -16,3 +16,4 @@ c=xyz
 echo "The name of the recent EV stock is $2"
 
 echo $*
+echo $$ #prints the current process
