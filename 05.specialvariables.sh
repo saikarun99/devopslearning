@@ -18,4 +18,5 @@ echo "The name of the recent EV stock is $2"
 
 echo $$ #prints the current process
 echo $* #prints the arguments
-echo $# 
+echo $# #prints the no of arguments
+echo $? #prints the exit code of previous command 0 is successful and 1 to 255 is failure
