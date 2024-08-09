@@ -6,3 +6,7 @@
 echo "The name of the script is $0"
 
 echo "The name of the recently launched vehicle is $1"
+
+# we can supply 9 arguments during run time $1 $2 $3 $4 .......$9
+
+echo "The name of the recent EV stock is $2"
