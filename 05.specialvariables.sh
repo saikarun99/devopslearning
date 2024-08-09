@@ -17,4 +17,5 @@ echo "The name of the recent EV stock is $2"
 
 
 echo $$ #prints the current process
-echo $* #prints the no of arguments
+echo $* #prints the arguments
+echo $# 
