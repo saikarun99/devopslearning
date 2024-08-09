@@ -12,6 +12,8 @@ echo $b
 
 echo "printing the value of $a"
 
+DATE="$(date+%F)"
+
 echo "Today's date is $DATE"
 
 
