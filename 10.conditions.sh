@@ -2,7 +2,7 @@
 
 # conditions are executed onlf if expression becomes true
 
-action = $1
+action=$1
 case $action in 
 start)
 echo "starting payment service"
