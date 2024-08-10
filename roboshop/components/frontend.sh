@@ -2,7 +2,11 @@
 
 #echo "I am frontend"
 
+USER_ID = $(id -u)
 
+if [ USER_ID - ne 0 ]; then
+echo "script is expected to be run by rootuser or a user with a sudo privilege"
+fi
 
 echo "Installing nginx:"
 yum install nginx -y &>> /tmp/frontend.log
