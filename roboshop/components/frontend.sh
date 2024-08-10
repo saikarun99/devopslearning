@@ -11,6 +11,7 @@ stat ( )
     else
     echo "failed"
     exit 2
+    fi
 }
 
 USER_ID=$(id -u)
