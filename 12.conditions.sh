@@ -45,18 +45,18 @@ echo "demo on using if and else"
 
 action=$1
 
-if [ "$action" == "start" ]; then
+if [ "$action" -eq "start" ]; then
 
 echo "starting payment service"
 exit 0;
 
-elif [ "$action" == "restart" ]; then
+elif [ "$action" -eq "restart" ]; then
 
 echo "restarting the payment service"
 
 exit 1;
 
-elif [ "$action" == "stop" ]; then
+elif [ "$action" -eq "stop" ]; then
 
 echo "stopping the payment service"
 
