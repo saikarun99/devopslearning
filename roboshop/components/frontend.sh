@@ -3,7 +3,7 @@
 #echo "I am frontend"
 set -e
 
-USER_ID = $(id -u)
+USER_ID=$(id -u)
 
 if [ $USER_ID -ne 0 ]; then
 echo "script is expected to be run by rootuser or a user with a sudo privilege"
