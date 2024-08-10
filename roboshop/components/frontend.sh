@@ -26,8 +26,8 @@ stat $?
 
 echo "starting nginx"
 systemctl enable nginx &>> /tmp/frontend.log
-systemctl start nginx &>> /tmp/frontend.log
-stat $?
+systemctl start nginx &>> /tmp/frontend.log ; stat $?
+
 
 echo "downloading the frontend file:"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip" 
