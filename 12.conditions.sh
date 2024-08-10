@@ -50,13 +50,13 @@ if [ "$action" == "start" ]; then
 echo "starting payment service"
 exit 0;
 
-elif ["$action" == "restart" ]; then
+elif [ "$action" == "restart" ]; then
 
 echo "restarting the payment service"
 
 exit 1;
 
-elif ["$action" == "stop" ]; then
+elif [ "$action" == "stop" ]; then
 
 echo "stopping the payment service"
 
