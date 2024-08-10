@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #echo "I am frontend"
+set -e
 
 USER_ID = $(id -u)
 
