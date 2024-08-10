@@ -3,9 +3,9 @@
 #echo "I am frontend"
 set -e
 
-stat ( )
+stat ()
 {
-    if [$1 == 0]; then
+    if [ $1 == 0 ]; then
     echo "Successful"
 
     else
