@@ -24,7 +24,7 @@ fi
 
 echo "configuring ${COMPONENT}"
 
-LOGFILE = "/tmp/${COMPONENT}.log"
+LOGFILE="/tmp/${COMPONENT}.log"
 echo -n "Installing nginx:"
 yum install nginx -y &>> ${LOGFILE}
 stat $?
