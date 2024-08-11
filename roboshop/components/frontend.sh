@@ -53,3 +53,5 @@ echo -n "restarting frontend:"
 systemctl daemon-reload
 systemctl restart nginx
 
+stat $?
+
