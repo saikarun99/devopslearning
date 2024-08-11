@@ -6,7 +6,7 @@ set -e
 stat ()
 {
     if [ $1 == 0 ]; then
-    echo -e "\e[32m "Successful \e[0m"
+    echo -e "\e[32m Successful \e[0m"
 
     else
     echo "failed"
