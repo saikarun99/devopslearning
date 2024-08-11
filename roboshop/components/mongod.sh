@@ -54,8 +54,8 @@ curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/a
 cd /tmp
 unzip -o mongodb.zip
 cd mongodb-main
-mongo < catalogue.js
-mongo < users.js
+mongo < catalogue.js &>> ${LOGFILE}
+mongo < users.js &>> ${LOGFILE}
 
 stat $?
 
