@@ -30,12 +30,12 @@ echo -n "Installing nodeJs:"
 #yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y &>> ${LOGFILE}
 yum install nodejs -y &>> ${LOGFILE}
 stat $?
-#id ${APPUSER} &>> ${LOGFILE}
-#if [ $? -ne 0 ]; then
+id ${APPUSER} &>> ${LOGFILE}
+if [ $? -ne 0 ]; then
 echo -n "Creating appn user:"
 useradd roboshop
 stat $?
-#fi
+fi
 
 echo -n "Downloading the ${COMPONENT}:"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
