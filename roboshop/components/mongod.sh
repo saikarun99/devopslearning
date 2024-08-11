@@ -38,7 +38,7 @@ echo -n "starting mongod:"
 systemctl enable mongod &>> ${LOGFILE}
 systemctl start mongod &>> ${LOGFILE} ; stat $?
 
-echo -e "Making mongod visible:"
+echo -n "Making mongod visible:"
 
 sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 
@@ -50,7 +50,7 @@ stat $?
 
 echo -n "Downloading the schema and injecting:"
 
-url -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
 cd /tmp
 unzip -o mongodb.zip
 cd mongodb-main
