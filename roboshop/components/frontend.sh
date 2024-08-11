@@ -20,7 +20,7 @@ if [ $USER_ID -ne 0 ]; then
 echo "script is expected to be run by rootuser or a user with a sudo privilege"
 fi
 
-echo "Installing nginx:"
+echo -n "Installing nginx:"
 yum install nginx -y &>> /tmp/frontend.log
 stat $?
 
