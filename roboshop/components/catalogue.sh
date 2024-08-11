@@ -4,7 +4,7 @@
 set -e
 
 COMPONENT=catalogue
-APPUSER=roboshop
+APPUSER="roboshop"
 
 stat ()
 {
