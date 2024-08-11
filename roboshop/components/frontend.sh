@@ -3,6 +3,8 @@
 #echo "I am frontend"
 set -e
 
+COMPONENT = frontend
+
 stat ()
 {
     if [ $1 == 0 ]; then
@@ -20,25 +22,28 @@ if [ $USER_ID -ne 0 ]; then
 echo "script is expected to be run by rootuser or a user with a sudo privilege"
 fi
 
+echo "configuring ${COMPONENT}"
+
+LOGFILE = "/tmp/${COMPONENT}.log"
 echo -n "Installing nginx:"
-yum install nginx -y &>> /tmp/frontend.log
+yum install nginx -y &>> ${LOGFILE}
 stat $?
 
 echo -n "starting nginx:"
-systemctl enable nginx &>> /tmp/frontend.log
-systemctl start nginx &>> /tmp/frontend.log ; stat $?
+systemctl enable nginx &>> ${LOGFILE}
+systemctl start nginx &>> ${LOGFILE} ; stat $?
 
 
 echo -n "downloading the frontend file:"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip" 
 stat $?
 echo -n "cleanup of default frontend:"
-cd /usr/share/nginx/html &>> /tmp/frontend.log
+cd /usr/share/nginx/html &>> ${LOGFILE}
 rm -rf * &>> /tmp/frontend.log
 stat $?
 
 echo -n "extracting frontend:"
-unzip /tmp/frontend.zip &>> /tmp/frontend.log
+unzip /tmp/frontend.zip &>> ${LOGFILE}
 stat $?
 
 echo -n "sorting the frontend files"
