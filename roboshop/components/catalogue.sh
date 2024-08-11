@@ -57,7 +57,7 @@ rm -rf ${COMPONENT} &>> ${LOGFILE}
  echo -n "configuring the ${COMPONENT} system file:"
 
 sed -ie 's/MONGO_DNSNAME/172.31.85.62/g' /home/${APPUSER}/${COMPONENT}/systemd.service
- mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+ mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.servicee
  stat $?
 
  echo -n "starting the ${COMPONENT} service:"
