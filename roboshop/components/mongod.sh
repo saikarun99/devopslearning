@@ -52,7 +52,7 @@ echo -n "Downloading the schema and injecting:"
 
 curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip" &>> ${LOGFILE}
 cd /tmp
-unzip -o mongodb.zip
+unzip -o mongodb.zip &>> ${LOGFILE}
 cd mongodb-main
 mongo < catalogue.js &>> ${LOGFILE}
 mongo < users.js &>> ${LOGFILE}
