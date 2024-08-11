@@ -3,7 +3,8 @@
 #echo "I am frontend"
 set -e
 
-COMPONENT=frontend
+COMPONENT=catalogue
+APPUSER=roboshop
 
 stat ()
 {
@@ -35,6 +36,38 @@ if [ $? -ne 0 ]; then
 useradd roboshop
 fi
 stat $?
+echo -n "Downloading the ${COMPONENT}:"
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+cd /home/${APPUSER}/
+rm -rf ${COMPONENT} &>> ${LOGFILE}
+ unzip -o /tmp/${COMPONENT}.zip &>> ${LOGFILE}
 
+ echo -n "changing the ownership:"
+ mv ${COMPONENT}-main ${COMPONENT}
+ chown -R ${APPUSER}:${APPUSER} /home/${APPUSER}/${COMPONENT}/
+ stat $?
+
+ echo -n "Generating the ${COMPONENT} artifacts:"
+
+ cd /home/${APPUSER}/${COMPONENT}/
+
+ npm install &>> ${LOGFILE}
+
+ echo -n "configuring the ${COMPONENT} system file:"
+
+sed -ie 's/MONGO_DNSNAME/172.31.85.62/g' /home/${APPUSER}/${COMPONENT}/systemd.service
+ mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+ stat $?
+
+ echo -n "starting the ${COMPONENT} service:"
+
+ systemctl daemon-reload
+
+systemctl enable ${COMPONENT} &>> ${LOGFILE}
+systemctl restart ${COMPONENT} &>> ${LOGFILE}
+
+stat $?
+
+echo -n "Installation is completed"
 
 
