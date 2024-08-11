@@ -3,7 +3,7 @@
 #echo "I am frontend"
 set -e
 
-COMPONENT = frontend
+COMPONENT=frontend
 
 stat ()
 {
