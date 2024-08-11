@@ -31,10 +31,10 @@ echo -n "Installing nodeJs:"
 yum install nodejs -y &>> ${LOGFILE}
 stat $?
 echo -n "Creating appn user:"
-id ${APPUSER} &>> ${LOGFILE}
-if [ $? -ne 0 ]; then
+#id ${APPUSER} &>> ${LOGFILE}
+#if [ $? -ne 0 ]; then
 useradd roboshop
-fi
+#fi
 stat $?
 echo -n "Downloading the ${COMPONENT}:"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
