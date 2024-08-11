@@ -24,7 +24,7 @@ echo -n "Installing nginx:"
 yum install nginx -y &>> /tmp/frontend.log
 stat $?
 
-echo -n "starting nginx"
+echo -n "starting nginx:"
 systemctl enable nginx &>> /tmp/frontend.log
 systemctl start nginx &>> /tmp/frontend.log ; stat $?
 
@@ -32,12 +32,12 @@ systemctl start nginx &>> /tmp/frontend.log ; stat $?
 echo -n "downloading the frontend file:"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip" 
 stat $?
-echo -n "cleanup of default frontend"
+echo -n "cleanup of default frontend:"
 cd /usr/share/nginx/html &>> /tmp/frontend.log
 rm -rf * &>> /tmp/frontend.log
 stat $?
 
-echo -n "extracting frontend"
+echo -n "extracting frontend:"
 unzip /tmp/frontend.zip &>> /tmp/frontend.log
 stat $?
 
@@ -48,7 +48,7 @@ rm -rf frontend-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
-echo -n "restarting frontend"
+echo -n "restarting frontend:"
 
 systemctl daemon-reload
 systemctl restart nginx
